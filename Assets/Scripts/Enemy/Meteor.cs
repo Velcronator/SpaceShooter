@@ -7,13 +7,28 @@ public class Meteor : Enemy
 {
     [SerializeField] protected float _minSpeed;
     [SerializeField] protected float _maxSpeed;
+    [SerializeField] private float _rotationSpeed;
 
     private float _speed;
+    private bool _isRotating;
 
     private void Start()
     {
         _speed = Random.Range(_minSpeed, _maxSpeed);
         _rigidbody.velocity = Vector2.down * _speed;
+
+        _isRotating = true;
+        StartCoroutine(RotateMeteor());
+    }
+
+    private IEnumerator RotateMeteor()
+    {
+        float randomRotationSpeed = Random.Range(-_rotationSpeed, _rotationSpeed);
+        while (_isRotating)
+        {
+            transform.Rotate(0, 0, randomRotationSpeed * Time.deltaTime);
+            yield return null;
+        }
     }
 
     public override void HurtSequence()
@@ -23,15 +38,19 @@ public class Meteor : Enemy
 
     override public void DeathSequence()
     {
-        Debug.Log("Meteor died!");
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if(otherColl.CompareTag("Player"))
+        if (otherColl.CompareTag("Player"))
         {
-            // destroy the player
             Destroy(otherColl.gameObject);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
     }
 }
