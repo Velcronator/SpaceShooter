@@ -38,7 +38,7 @@ public class Meteor : Enemy
 
     override public void DeathSequence()
     {
-        Debug.Log("Meteor dead!");
+        Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -50,7 +50,7 @@ public class Meteor : Enemy
             PlayerStats player = otherColl.GetComponent<PlayerStats>();
             if (player != null)
             {
-                Debug.Log("Meteor hit player");
+                Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
                 player.PlayerTakeDamage(_damage);
             }
         }

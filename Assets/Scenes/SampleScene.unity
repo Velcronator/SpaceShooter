@@ -547,7 +547,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.577778
+  orthographic size: 8.444445
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -829,6 +829,7 @@ GameObject:
   - component: {fileID: 698448877}
   - component: {fileID: 698448881}
   - component: {fileID: 698448882}
+  - component: {fileID: 698448883}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1065,9 +1066,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c97043648cd494c9ac4d99f6e0424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
+  _maxHealth: 50
   _currentHealth: 0
   _healthFill: {fileID: 1502998676}
+  _explosionPrefab: {fileID: 9020340174327019181, guid: 593fda80c41a8914bb7710e61890ffd2, type: 3}
+  animator: {fileID: 698448883}
+--- !u!95 &698448883
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698448874}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfadd1f95d5141544b42b67855f71abc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &733424996
 GameObject:
   m_ObjectHideFlags: 0
