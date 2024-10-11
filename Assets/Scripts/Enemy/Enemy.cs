@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float _health;
     [SerializeField] protected Rigidbody2D _rigidbody;
 
+    [SerializeField] protected float _damage;
+
     void Start()
     {
 
@@ -25,11 +27,12 @@ public class Enemy : MonoBehaviour
 
     public virtual void HurtSequence()
     {
-        Debug.Log("Ouch!");
+        Debug.Log("Enemy Ouch!");
     }
 
     public virtual void DeathSequence()
     {
+        Debug.Log("Enemy dead!");
         Destroy(gameObject);
     }
 

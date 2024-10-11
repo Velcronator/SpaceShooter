@@ -38,6 +38,7 @@ public class Meteor : Enemy
 
     override public void DeathSequence()
     {
+        Debug.Log("Meteor dead!");
         Destroy(gameObject);
     }
 
@@ -45,12 +46,18 @@ public class Meteor : Enemy
     {
         if (otherColl.CompareTag("Player"))
         {
-            Destroy(otherColl.gameObject);
+            Destroy(gameObject);
+            PlayerStats player = otherColl.GetComponent<PlayerStats>();
+            if (player != null)
+            {
+                Debug.Log("Meteor hit player");
+                player.PlayerTakeDamage(_damage);
+            }
         }
     }
 
     private void OnBecameInvisible()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
