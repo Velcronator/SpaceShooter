@@ -41,6 +41,8 @@ public class PlayerStats : MonoBehaviour
     {
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        EndGameManager.instance._gameOver = true;
+        EndGameManager.instance.StartResolveSequence();
     }
 
     private IEnumerator AntiSpamAnimation()
