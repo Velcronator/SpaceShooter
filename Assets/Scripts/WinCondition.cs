@@ -12,6 +12,11 @@ public class WinCondition : MonoBehaviour
 
     private void Update()
     {
+        if(EndGameManager.instance._gameOver == true)
+        {
+            return;
+        }
+
         _timer += Time.deltaTime;
         if (_timer >= _possibleWinTime)
         {
