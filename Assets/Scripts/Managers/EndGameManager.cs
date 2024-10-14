@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndGameManager : MonoBehaviour
 {
@@ -8,6 +10,9 @@ public class EndGameManager : MonoBehaviour
     public bool _gameOver = false;
 
     private PanelController _panelController;
+    private TextMeshProUGUI _scoreText;
+
+    public int _score = 0;
 
     private void Awake()
     {
@@ -21,6 +26,12 @@ public class EndGameManager : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    public void UpdateScore(int scoreValue)
+    {
+        _score += scoreValue;
+        _scoreText.text = "Score: " + _score.ToString();
     }
 
     public void StartResolveSequence()
@@ -37,18 +48,32 @@ public class EndGameManager : MonoBehaviour
 
     public void WinGame()
     {
-        _panelController.ShowWinScreen();
         //unlock the next level
-        //score
+        ScoreSet();
+        _panelController.ShowWinScreen();
         _gameOver = true;
     }
 
     public void LoseGame()
     {
+        ScoreSet();
         _panelController.ShowLoseScreen();
-        //reload the current level
         _gameOver = true;
     }
+
+    public void ScoreSet()
+    {
+        PlayerPrefs.SetInt("Score" + SceneManager.GetActiveScene().name, _score);
+        int highScore = PlayerPrefs.GetInt("HighScore" + SceneManager.GetActiveScene().name, 0);
+
+        if (_score > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore" + SceneManager.GetActiveScene().name, _score);
+        }
+        // reset the score
+        _score = 0;
+    }
+
 
     public void ResolveGame()
     {
@@ -65,6 +90,11 @@ public class EndGameManager : MonoBehaviour
     public void RegisterPanelController(PanelController panelController)
     {
         _panelController = panelController;
+    }
+
+    public void RegisterScoreText(TextMeshProUGUI scoreText)
+    {
+        _scoreText = scoreText;
     }
 
 

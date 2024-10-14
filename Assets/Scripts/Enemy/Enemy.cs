@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject _explosionPrefab;
 
     [SerializeField] protected Animator _animator;
+    [SerializeField] private int _scoreValue;
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void DeathSequence()
     {
-        Debug.Log("Enemy dead!");
+        EndGameManager.instance.UpdateScore(_scoreValue);
         Destroy(gameObject);
     }
 

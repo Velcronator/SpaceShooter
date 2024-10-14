@@ -38,8 +38,8 @@ public class Meteor : Enemy
 
     override public void DeathSequence()
     {
+        base.DeathSequence();
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D otherColl)
