@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1, y: 6, z: 0}
-  m_LocalScale: {x: 1.0682111, y: 1.0682111, z: 1}
+  m_LocalScale: {x: 0.87888086, y: 0.87888086, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -170,3 +170,4 @@ MonoBehaviour:
   _minSpeed: 12
   _maxSpeed: 8
   _rotationSpeed: 200
+  _powerUpSpawner: {fileID: 11400000, guid: cb585ac99a0917b41ad280734b848d4a, type: 2}

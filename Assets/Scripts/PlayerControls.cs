@@ -15,7 +15,6 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float _downLimit = 0.05f;
 
     [SerializeField] private InputActionReference _moveActionToUse;
-    [SerializeField] private float _speed = 5.0f;
     
     private Camera _mainCamera;
     private Vector3 _offset;
@@ -24,7 +23,6 @@ public class PlayerControls : MonoBehaviour
     private float _maxRight;
     private float _maxDown;
     private float _maxUp;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -36,18 +34,11 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveDirection = _moveActionToUse.action.ReadValue<Vector2>();
-        transform.Translate(moveDirection * _speed * Time.deltaTime);
-
-        //GetActiveTouches();
-
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, _maxLeft, _maxRight),
-            Mathf.Clamp(transform.position.y, _maxDown, _maxUp), 0);
+        GetActiveTouches();
     }
 
     private void GetActiveTouches()
     {
-        //if(Touch.fingers[0].isActive)
         if (Touch.activeTouches.Count > 0)
         {
             if (Touch.activeTouches[0].finger.index == 0)
@@ -76,6 +67,9 @@ public class PlayerControls : MonoBehaviour
                 }
             }
         }
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, _maxLeft, _maxRight),
+        Mathf.Clamp(transform.position.y, _maxDown, _maxUp), 0);
+
     }
 
     private void OnEnable()

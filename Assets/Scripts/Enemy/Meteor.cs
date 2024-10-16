@@ -7,6 +7,8 @@ public class Meteor : Enemy
     [SerializeField] protected float _minSpeed;
     [SerializeField] protected float _maxSpeed;
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private PrefabSO _powerUpSpawner;
+
 
     private float _speed;
     private bool _isRotating;
@@ -37,8 +39,12 @@ public class Meteor : Enemy
 
     override public void DeathSequence()
     {
-        base.DeathSequence();
+        if (_powerUpSpawner != null)
+        {
+            _powerUpSpawner.SpawnPowerUps(transform.position);
+        }
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        base.DeathSequence();
     }
 
     private void OnTriggerEnter2D(Collider2D otherColl)
