@@ -13,6 +13,7 @@ public class EndGameManager : MonoBehaviour
     private TextMeshProUGUI _scoreText;
 
     public int _score = 0;
+    [HideInInspector] public string levelUnlock = "LevelUnlock";
 
     private void Awake()
     {
@@ -48,10 +49,14 @@ public class EndGameManager : MonoBehaviour
 
     public void WinGame()
     {
-        //unlock the next level
         ScoreSet();
         _panelController.ShowWinScreen();
         _gameOver = true;
+        int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        if(nextLevel > PlayerPrefs.GetInt(levelUnlock, 0))
+        {
+            PlayerPrefs.SetInt(levelUnlock, nextLevel);
+        }
     }
 
     public void LoseGame()
