@@ -1,0 +1,5 @@
+D:/00 Papai/Repo/Unity/SpaceShooter/.utmp/Debug/ia12d2f3/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/00 Papai/Repo/Unity/SpaceShooter/.utmp/Debug/ia12d2f3/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/00 Papai/Repo/Unity/SpaceShooter/.utmp/Debug/ia12d2f3/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/00 Papai/Repo/Unity/SpaceShooter/.utmp/Debug/ia12d2f3/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+D:/00 Papai/Repo/Unity/SpaceShooter/.utmp/Debug/ia12d2f3/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

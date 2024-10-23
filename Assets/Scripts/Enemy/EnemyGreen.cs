@@ -14,7 +14,7 @@ public class EnemyGreen : Enemy
 
     private void Start()
     {
-        _rigidbody.velocity = Vector2.down * _speed;
+        _rigidbody.linearVelocity = Vector2.down * _speed;
     }
 
     private void Update()

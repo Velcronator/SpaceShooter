@@ -12,7 +12,7 @@ public class BulletPurple : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.velocity = Vector2.down * _speed;
+        _rigidbody.linearVelocity = Vector2.down * _speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

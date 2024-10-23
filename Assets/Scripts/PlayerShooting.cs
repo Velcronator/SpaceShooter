@@ -91,7 +91,7 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         if (bulletRb != null)
         {
-            bulletRb.velocity = bullet.transform.forward * _bulletSpeed;
+            bulletRb.linearVelocity = bullet.transform.forward * _bulletSpeed;
         }
     }
 

@@ -16,7 +16,7 @@ public class Meteor : Enemy
     private void Start()
     {
         _speed = Random.Range(_minSpeed, _maxSpeed);
-        _rigidbody.velocity = Vector2.down * _speed;
+        _rigidbody.linearVelocity = Vector2.down * _speed;
 
         _isRotating = true;
         StartCoroutine(RotateMeteor());
