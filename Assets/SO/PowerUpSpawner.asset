@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: PowerUpSpawner
   m_EditorClassIdentifier: 
   powerUps:
+  - {fileID: 3558414782030623555, guid: 73a33a330c981c24f9a5726701df2a90, type: 3}
   - {fileID: 3979417233085583117, guid: c6f804caaa349254280ad9eed50c4498, type: 3}
-  spawnThreshold: 1
+  - {fileID: 6184289610783553285, guid: 3001a36ca07975f4b879d657c35bca68, type: 3}
+  spawnThreshold: 50

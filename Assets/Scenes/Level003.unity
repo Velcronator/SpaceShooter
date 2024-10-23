@@ -1905,6 +1905,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef6534ab498616a4e955b323981262e1, type: 3}
+--- !u!1 &1425486344075673854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7796543892376333316, guid: ef6534ab498616a4e955b323981262e1, type: 3}
+  m_PrefabInstance: {fileID: 1425486344075673853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1425486344075673855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1712546276353083088, guid: ef6534ab498616a4e955b323981262e1, type: 3}
+  m_PrefabInstance: {fileID: 1425486344075673853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1425486344075673856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1644643850363292495, guid: ef6534ab498616a4e955b323981262e1, type: 3}
+  m_PrefabInstance: {fileID: 1425486344075673853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3409603326272887073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2153,6 +2168,34 @@ PrefabInstance:
       propertyPath: _healthFill
       value: 
       objectReference: {fileID: 1502998676}
+    - target: {fileID: 2880749115898730553, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
+      propertyPath: _shieldBase.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880749115898730553, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
+      propertyPath: _shieldBase.Array.data[0]
+      value: 
+      objectReference: {fileID: 1425486344075673856}
+    - target: {fileID: 2880749115898730553, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
+      propertyPath: _shieldBase.Array.data[1]
+      value: 
+      objectReference: {fileID: 1425486344075673855}
+    - target: {fileID: 2880749115898730553, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
+      propertyPath: _shieldBase.Array.data[2]
+      value: 
+      objectReference: {fileID: 1425486344075673854}
+    - target: {fileID: 2880749115898730553, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
+      propertyPath: _shieldBase.Array.data[3]
+      value: 
+      objectReference: {fileID: 1425486344075673855}
+    - target: {fileID: 2880749115898730553, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
+      propertyPath: _shieldBase.Array.data[4]
+      value: 
+      objectReference: {fileID: 1425486344075673854}
+    - target: {fileID: 2880749115898730553, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
+      propertyPath: _shieldBase.Array.data[5]
+      value: 
+      objectReference: {fileID: 1425486344075673854}
     - target: {fileID: 6502762766266440581, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -18,4 +18,9 @@ public class PowerUpHeal : MonoBehaviour
             }
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

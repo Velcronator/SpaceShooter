@@ -10,7 +10,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private Image _healthFill;
     [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject _shield;
+    [SerializeField] private Shield _shield;
+
+    private PlayerShooting _playerShooting;
 
     private bool _canPlayDamageAnimation = true;
 
@@ -20,12 +22,13 @@ public class PlayerStats : MonoBehaviour
         _currentHealth = _maxHealth;
         _healthFill.fillAmount = _currentHealth / _maxHealth;
         EndGameManager.instance._gameOver = false;
+        _playerShooting = GetComponent<PlayerShooting>();
     }
 
     public void PlayerTakeDamage(float damage)
     {
-        if (_shield.activeSelf)
-        {   //Todo: 
+        if (_shield._protection)
+        {   
             return;
         }
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
@@ -37,6 +40,8 @@ public class PlayerStats : MonoBehaviour
             animator.SetTrigger("Damage");
             StartCoroutine(AntiSpamAnimation());
         }
+
+        _playerShooting.ChangeWeaponUpgradeLevel(-1);
 
         if (_currentHealth <= 0)
         {
