@@ -51,6 +51,12 @@ public class Shield : MonoBehaviour
     {
         if (otherColl.TryGetComponent(out Enemy enemy))
         {
+            if(otherColl.CompareTag("Boss"))
+            {
+                _hitsToDestroy = 0;
+                DamageShield();
+                return;
+            }
             enemy.TakeDamage(1000);
             DamageShield();
         }

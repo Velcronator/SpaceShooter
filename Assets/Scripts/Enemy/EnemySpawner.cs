@@ -10,6 +10,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] _enemy;
     [SerializeField] private float _spawntime;
 
+    [Header("Boss")]
+    [SerializeField] private GameObject _bossPrefab;
+    [SerializeField] private WinCondition _winCondition;
+
     private float timer = 0f;
     private int i;
     private float yPos;
@@ -50,5 +54,19 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         _maxLeft = _mainCamera.ViewportToWorldPoint(new Vector2(_leftLimit, 0)).x;
         _maxRight = _mainCamera.ViewportToWorldPoint(new Vector2(_rightLimit, 0)).x;
+    }
+
+    private void OnDisable()
+    {
+        if(_winCondition._canSpawnBoss == false)
+        {
+            return;
+        }
+
+        if(_bossPrefab != null)
+        {
+            Vector2 spawnPosition = _mainCamera.ViewportToWorldPoint(new Vector2(0.5f, 1.2f));
+            Instantiate(_bossPrefab, spawnPosition, Quaternion.identity);
+        }
     }
 }
