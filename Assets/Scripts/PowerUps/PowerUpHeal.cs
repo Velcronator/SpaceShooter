@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PowerUpHeal : MonoBehaviour
 {
+    [SerializeField] private AudioClip _healPickupSound;
+
     [SerializeField] private int _healAmount;
 
     private void OnTriggerEnter2D(Collider2D otherColl)
@@ -13,6 +15,7 @@ public class PowerUpHeal : MonoBehaviour
             PlayerStats player = otherColl.GetComponent<PlayerStats>();
             if (player != null)
             {
+                AudioSource.PlayClipAtPoint(_healPickupSound, transform.position, 1f);
                 player.PlayerHeal(_healAmount);
                 Destroy(gameObject);
             }

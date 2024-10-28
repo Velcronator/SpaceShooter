@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUpShield : MonoBehaviour
 {
+    [SerializeField] private AudioClip _shieldPickupSound;
 
     private void OnTriggerEnter2D(Collider2D otherColl)
     {
@@ -11,6 +12,10 @@ public class PowerUpShield : MonoBehaviour
         {
             PlayerShieldActivator playerShieldActivator = otherColl.GetComponent<PlayerShieldActivator>();
             playerShieldActivator.ActivateShield();
+
+            // Play the pickup sound
+            AudioSource.PlayClipAtPoint(_shieldPickupSound, transform.position, 1f);
+
             Destroy(gameObject);
         }
     }

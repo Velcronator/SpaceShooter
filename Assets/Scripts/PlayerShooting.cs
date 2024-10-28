@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] AudioSource _audioSource;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private float _shootingInterval;
 
@@ -51,6 +52,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
+        _audioSource.Play();
         switch (_upgradeLevel)
         {
             case 0:

@@ -175,4 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431a2f9c1884600419cb1151cfdb0d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healPickupSound: {fileID: 8300000, guid: 16f50cb7c38d02040bf6488c90433d90, type: 3}
   _healAmount: 5
