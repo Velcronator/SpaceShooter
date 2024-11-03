@@ -1,3 +1,3 @@
 # ninja log v5
-0	1459	7513668100028652	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	199c7b01d1fadaee
-1481	1708	7513668102425108	D:/00 Papai/Repo/Unity/SpaceShooter/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/ia12d2f3/obj/armeabi-v7a/libswappywrapper.so	abd5281aed23d76f
+1	1547	7523436860202630	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	1594df3f18158b11
+1548	1762	7523436862234141	D:/00 Papai/Repo/Unity/SpaceShooter/Library/PramData/AndroidApplicationController/Cache/com.DLS.SpaceShooter/gradle-project/unityLibrary/build/intermediates/cxx/Debug/ia12d2f3/obj/armeabi-v7a/libswappywrapper.so	48db2d3c9d47a642
