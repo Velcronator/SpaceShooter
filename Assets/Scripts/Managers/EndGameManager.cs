@@ -8,9 +8,12 @@ public class EndGameManager : MonoBehaviour
 {
     public static EndGameManager instance;
     public bool _gameOver = false;
+    public bool _possibleWin = false;
 
     private PanelController _panelController;
     private TextMeshProUGUI _scoreText;
+    private PlayerStats _playerStats;
+    private RewardedAd _rewardedAd;
 
     public int _score = 0;
     [HideInInspector] public string levelUnlock = "LevelUnlock";
@@ -49,6 +52,7 @@ public class EndGameManager : MonoBehaviour
 
     public void WinGame()
     {
+        _playerStats._canTakeDamage = false;
         ScoreSet();
         _panelController.ShowWinScreen();
         _gameOver = true;
@@ -82,14 +86,36 @@ public class EndGameManager : MonoBehaviour
 
     public void ResolveGame()
     {
-        if (_gameOver == false)
+        if (_possibleWin = true && _gameOver == false)
         {
             WinGame();
         }
-        else
+        else if(_possibleWin == false && _gameOver == true)
         {
+            // We lost the game, but we can watch an ad to continue
+            AdLoseGame();
+        }
+        else if(_possibleWin == true && _gameOver == true)
+        {
+            // We lost the game, and the boss is gone
             LoseGame();
         }
+    }
+
+    public void AdLoseGame()
+    {
+        ScoreSet();
+        if(_rewardedAd._adNumber > 0)
+        {
+            _rewardedAd._adNumber--;
+            _panelController.ActivateAdLoseScreen();
+        }
+        else
+        {
+            _panelController.ShowLoseScreen();
+            LoseGame();
+        }
+        
     }
 
     public void RegisterPanelController(PanelController panelController)
@@ -102,5 +128,13 @@ public class EndGameManager : MonoBehaviour
         _scoreText = scoreText;
     }
 
+    public void RegisterPlayerStats(PlayerStats playerStats)
+    {
+        _playerStats = playerStats;
+    }
 
+    public void RegisterRewardedAd(RewardedAd rewardedAd)
+    {
+        _rewardedAd = rewardedAd;
+    }
 }

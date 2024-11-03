@@ -15,22 +15,43 @@ public class PlayerStats : MonoBehaviour
     private PlayerShooting _playerShooting;
 
     private bool _canPlayDamageAnimation = true;
+    public bool _canTakeDamage = true;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         _currentHealth = _maxHealth;
         _healthFill.fillAmount = _currentHealth / _maxHealth;
         EndGameManager.instance._gameOver = false;
+        StartCoroutine(DamageProtection());
+    }
+
+    private void Start()
+    {
         _playerShooting = GetComponent<PlayerShooting>();
+        EndGameManager.instance.RegisterPlayerStats(this);
+        EndGameManager.instance._possibleWin = false;
+    }
+
+    IEnumerator DamageProtection()
+    {
+        _canTakeDamage = false;
+        yield return new WaitForSeconds(2f);
+        _canTakeDamage = true;
     }
 
     public void PlayerTakeDamage(float damage)
     {
+        if (!_canTakeDamage)
+        {
+            return;
+        }
+
         if (_shield._protection)
         {   
             return;
         }
+
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         _currentHealth -= damage;
         _healthFill.fillAmount = _currentHealth / _maxHealth;
@@ -52,9 +73,10 @@ public class PlayerStats : MonoBehaviour
     private void PlayerDie()
     {
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        //Destroy(gameObject);
         EndGameManager.instance._gameOver = true;
         EndGameManager.instance.StartResolveSequence();
+        gameObject.SetActive(false);
     }
 
     private IEnumerator AntiSpamAnimation()
