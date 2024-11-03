@@ -49,7 +49,6 @@ public class EnemyPurple : Enemy
     {
         if(_animator.GetCurrentAnimatorStateInfo(0).IsTag("Dmg"))
         {
-            Debug.Log("Already playing damage animation");
             return;
         }
         Instantiate(_explosionPrefab, transform.position, transform.rotation);

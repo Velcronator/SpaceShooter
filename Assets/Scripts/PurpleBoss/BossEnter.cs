@@ -30,8 +30,6 @@ public class BossEnter : BossBaseState
             transform.position = Vector2.MoveTowards(transform.position, _enterPoint, _speed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
-        Debug.Log("Boss has entered the scene");
         _bossController.ChangeState(BossState.fire);
-        Debug.Log("Boss is firing");
     }
 }

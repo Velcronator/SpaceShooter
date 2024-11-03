@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void HurtSequence()
     {
-        Debug.Log("Enemy Ouch!");
+        Debug.Log("Base Enemy Ouch!");
     }
 
     public virtual void DeathSequence()

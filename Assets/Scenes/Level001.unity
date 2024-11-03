@@ -2701,6 +2701,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8536037335279119746, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
+      propertyPath: m_laserBullet
+      value: 
+      objectReference: {fileID: 4663614328169785107, guid: b803b29a6bd177246a979ce0f18cb6a9, type: 3}
     - target: {fileID: 9082392527140879380, guid: a89ef40e850878c4f803591b91a1daef, type: 3}
       propertyPath: m_Name
       value: Player

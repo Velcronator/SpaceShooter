@@ -34,7 +34,7 @@ public class Meteor : Enemy
 
     public override void HurtSequence()
     {
-        Debug.Log("Meteor hurt!");
+        //Debug.Log("Meteor hurt!");
     }
 
     override public void DeathSequence()
